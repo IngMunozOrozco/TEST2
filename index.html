@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        .question-page {
+            padding: 20px;
+        }
+        .question-page input[type="radio"] {
+            margin-right: 10px;
+        }
+        .question-page button {
+            margin-top: 20px;
+        }
+        .timer {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer" id="timer">50:00</div>
+
+    <div id="question1" class="question-page">
+        <p>What is Diana’s favorite city?</p>
+        <form id="form1">
+            <input type="radio" name="q1" value="Bogota"> Bogota<br>
+            <input type="radio" name="q1" value="New York"> New York<br>
+            <input type="radio" name="q1" value="Paris"> Paris <span class="correct">(X)</span><br>
+            <button type="button" onclick="nextQuestion('question1', 'question2')">Next</button>
+        </form>
+    </div>
+
+    <div id="question2" class="hidden question-page">
+        <p>Diana is always in there for…</p>
+        <form id="form2">
+            <input type="radio" name="q2" value="Christmas"> Christmas<br>
+            <input type="radio" name="q2" value="her birthday"> her birthday <span class="correct">(X)</span><br>
+            <input type="radio" name="q2" value="her graduation"> her graduation<br>
+            <button type="button" onclick="nextQuestion('question2', 'question3')">Next</button>
+        </form>
+    </div>
+
+    <div id="question3" class="hidden question-page">
+        <p>Diana’s friends like _____ sports.</p>
+        <form id="form3">
+            <input type="radio" name="q3" value="dangerous"> dangerous <span class="correct">(X)</span><br>
+            <input type="radio" name="q3" value="boring"> boring<br>
+            <input type="radio" name="q3" value="interesting"> interesting<br>
+            <button type="button" onclick="nextQuestion('question3', 'question4')">Next</button>
+        </form>
+    </div>
+
+    <div id="question4" class="hidden question-page">
+        <p>Diana ______ the weekends with her friends.</p>
+        <form id="form4">
+            <input type="radio" name="q4" value="like"> like<br>
+            <input type="radio" name="q4" value="doesn't like"> doesn't like<br>
+            <input type="radio" name="q4" value="likes"> likes <span class="correct">(X)</span><br>
+            <button type="button" onclick="nextQuestion('question4', 'question5')">Next</button>
+        </form>
+    </div>
+
+    <div id="question5" class="hidden question-page">
+        <p>Diana ________ the way back.</p>
+        <form id="form5">
+            <input type="radio" name="q5" value="like"> like<br>
+            <input type="radio" name="q5" value="doesn't like"> doesn't like <span class="correct">(X)</span><br>
+            <input type="radio" name="q5" value="likes"> likes<br>
+            <button type="button" onclick="nextQuestion('question5', 'question6')">Next</button>
+        </form>
+    </div>
+
+    <div id="question6" class="hidden question-page">
+        <p>Organize the following sentences: does / Maria / like / the mall / not</p>
+        <form id="form6">
+            <input type="radio" name="q6" value="Does like not Maria the mall"> Does like not Maria the mall<br>
+            <input type="radio" name="q6" value="Maria does not like the mall"> Maria does not like the mall <span class="correct">(X)</span><br>
+            <input type="radio" name="q6" value="Maria not does like the mall"> Maria not does like the mall<br>
+            <button type="button" onclick="nextQuestion('question6', 'question7')">Next</button>
+        </form>
+    </div>
+
+    <div id="question7" class="hidden question-page">
+        <p>Organize the following sentences: Sam / does / like / the park / ?</p>
+        <form id="form7">
+            <input type="radio" name="q7" value="Does Sam like the park?"> Does Sam like the park? <span class="correct">(X)</span><br>
+            <input type="radio" name="q7" value="Sam does like the park?"> Sam does like the park?<br>
+            <input type="radio" name="q7" value="The park does like Sam?"> The park does like Sam?<br>
+            <button type="button" onclick="nextQuestion('question7', 'question8')">Next</button>
+        </form>
+    </div>
+
+    <div id="question8" class="hidden question-page">
+        <p>Organize the following sentences: Daniela / with / her / lives / mother</p>
+        <form id="form8">
+            <input type="radio" name="q8" value="Daniela lives with her mother"> Daniela lives with her mother <span class="correct">(X)</span><br>
+            <input type="radio" name="q8" value="Her mother lives with Daniela"> Her mother lives with Daniela<br>
+            <input type="radio" name="q8" value="Lives Daniela with her mother"> Lives Daniela with her mother<br>
+            <button type="button" onclick="nextQuestion('question8', 'question9')">Next</button>
+        </form>
+    </div>
+
+    <div id="question9" class="hidden question-page">
+        <p>Organize the following sentences: like / you / do / apartments / ?</p>
+        <form id="form9">
+            <input type="radio" name="q9" value="You do like aparments?"> You do like aparments?<br>
+            <input type="radio" name="q9" value="Do you like apartments?"> Do you like apartments? <span class="correct">(X)</span><br>
+            <input type="radio" name="q9" value="Aparments do you like?"> Aparments do you like?<br>
+            <button type="button" onclick="nextQuestion('question9', 'question10')">Next</button>
+        </form>
+    </div>
+
+    <div id="question10" class="hidden question-page">
+        <p>Organize the following sentences: do / not / parents / my / building / like / my</p>
+        <form id="form10">
+            <input type="radio" name="q10" value="My building do not like my parents"> My building do not like my parents<br>
+            <input type="radio" name="q10" value="Do not like my parents my building"> Do not like my parents my building<br>
+            <input type="radio" name="q10" value="My parents do not like my building"> My parents do not like my building <span class="correct">(X)</span><br>
+            <button type="button" onclick="nextQuestion('question10', 'question11')">Next</button>
+        </form>
+    </div>
+
+    <div id="question11" class="hidden question-page">
+        <p>Danny is in New York at this moment.</p>
+        <form id="form11">
+            <input type="radio" name="q11" value="true"> True<br>
+            <input type="radio" name="q11" value="false"> False <span class="correct">(X)</span><br>
+            <button type="button" onclick="nextQuestion('question11', 'question12')">Next</button>
+        </form>
+    </div>
+
+    <div id="question12" class="hidden question-page">
+        <p>Where are Sara and Danny at this moment?</p>
+        <form id="form12">
+            <input type="radio" name="q12" value="Houston"> Houston <span class="correct">(X)</span><br>
+            <input type="radio" name="q12" value="New York"> New York<br>
+            <input type="radio" name="q12" value="Kansas"> Kansas<br>
+            <button type="button" onclick="nextQuestion('question12', 'question13')">Next</button>
+        </form>
+    </div>
+
+    <div id="question13" class="hidden question-page">
+        <p>Sara is free on Saturday.</p>
+        <form id="form13">
+            <input type="radio" name="q13" value="true"> True <span class="correct">(X)</span><br>
+            <input type="radio" name="q13" value="false"> False<br>
+            <button type="button" onclick="nextQuestion('question13', 'question14')">Next</button>
+        </form>
+    </div>
+
+    <div id="question14" class="hidden question-page">
+        <p>Danny ________ sushi.</p>
+        <form id="form14">
+            <input type="radio" name="q14" value="likes"> likes<br>
+            <input type="radio" name="q14" value="doesn't like"> doesn't like <span class="correct">(X)</span><br>
+            <button type="button" onclick="nextQuestion('question14', 'question15')">Next</button>
+        </form>
+    </div>
+
+    <div id="question15" class="hidden question-page">
+        <p>Danny and Sara _________ pasta.</p>
+        <form id="form15">
+            <input type="radio" name="q15" value="like"> like <span class="correct">(X)</span><br>
+            <input type="radio" name="q15" value="don't like"> don't like<br>
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+    </div>
+
+    <div id="result" class="hidden">
+        <h2>Final Score</h2>
+        <p id="score"></p>
+    </div>
+
+    <script>
+        let timeLeft = 50 * 60;
+        let timer = document.getElementById('timer');
+        let timerInterval;
+
+        function updateTimer() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            if (seconds < 10) seconds = '0' + seconds;
+            timer.textContent = `${minutes}:${seconds}`;
+            timeLeft--;
+            if (timeLeft < 0) {
+                clearInterval(timerInterval);
+                calculateScore();
+            }
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        function nextQuestion(current, next) {
+            document.getElementById(current).classList.add('hidden');
+            document.getElementById(next).classList.remove('hidden');
+        }
+
+        function calculateScore() {
+            let totalScore = 0;
+            const correctAnswers = [
+                'Paris', 'her birthday', 'dangerous', 'likes', 'does not like',
+                'Maria does not like the mall', 'Does Sam like the park?', 'Daniela lives with her mother',
+                'Do you like apartments?', 'My parents do not like my building', 'False', 'Houston', 'True', 'does nott like', 'like'
+            ];
+            const totalQuestions = correctAnswers.length;
+            const scorePerQuestion = 6.66;
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selectedOption && selectedOption.value === correctAnswers[i - 1]) {
+                    totalScore += scorePerQuestion;
+                }
+            }
+
+            document.querySelectorAll('.question-page').forEach(page => {
+                page.querySelectorAll('input[type="radio"]').forEach(radio => {
+                    const isCorrect = radio.value === correctAnswers[parseInt(radio.name.slice(1)) - 1];
+                    if (radio.checked && !isCorrect) {
+                        radio.parentElement.classList.add('incorrect');
+                    } else if (radio.checked && isCorrect) {
+                        radio.parentElement.classList.add('correct');
+                    }
+                });
+            });
+
+            document.getElementById('result').classList.remove('hidden');
+            document.getElementById('score').textContent = `Your final score is: ${totalScore.toFixed(2)} out of ${(totalQuestions * scorePerQuestion).toFixed(2)}`;
+        }
+
+        startTimer();
+    </script>
+</body>
+</html>
